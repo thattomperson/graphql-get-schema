@@ -5,7 +5,9 @@
   "source": "src/index.js",
   "main": "dist/main.js",
   "scripts": {
-    "build": "parcel build"
+    "build": "parcel build",
+    "prepublish": "npm run build",
+    "test": "true"
   },
   "bin": "./dist/main.js",
   "author": "",
