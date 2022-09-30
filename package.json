@@ -1,5 +1,5 @@
 {
-  "name": "graphql-download",
+  "name": "graphql-get-schema",
   "version": "1.0.3",
   "description": "",
   "source": "src/index.js",
