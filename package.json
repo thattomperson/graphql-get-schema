@@ -9,7 +9,7 @@
     "prepublish": "npm run build",
     "test": "true"
   },
-  "bin": "./dist/main.js",
+  "bin": "./bin/cli.js",
   "author": "",
   "license": "ISC",
   "dependencies": {
