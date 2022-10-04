@@ -1,3 +1,4 @@
+```
 Usage: main [options]
 
 Options:
@@ -5,3 +6,4 @@ Options:
   -p, --path <path>  ./schema.graphql
   -k, --insecure
   -h, --help         display help for command
+```
