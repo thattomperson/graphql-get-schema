@@ -1,5 +1,5 @@
 ```
-Usage: main [options]
+Usage: graphql-get-schema [options]
 
 Options:
   -u, --url <url>    http://localhost:3000/graphql
