@@ -1,15 +1,21 @@
 {
   "name": "graphql-get-schema",
   "version": "1.0.5",
-  "description": "",
+  "description": "Download graphql schemas and save them locally",
   "source": "src/index.js",
   "main": "dist/main.js",
+  "bin": "./bin/cli.js",
   "scripts": {
     "build": "parcel build",
     "prepublish": "npm run build",
     "test": "true"
   },
-  "bin": "./bin/cli.js",
+  "repository": {
+    "url": "https://github.com/thattomperson/graphql-get-url"
+  },
+  "bugs": {
+    "url": "https://github.com/thattomperson/graphql-get-url/issues"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
