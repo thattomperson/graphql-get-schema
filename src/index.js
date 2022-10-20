@@ -16,20 +16,19 @@ const outPath = options.path ?? './schema.graphql';
 const insecure = options.insecure ?? false;
 
 const query = getIntrospectionQuery();
-const agent = new https.Agent({ rejectUnauthorized: !insecure })
-// const out = fs.createWriteStream(outPath);
+const agent = new https.Agent({ rejectUnauthorized: !insecure });
 
 const request = https.request(
   url,
   {
     agent: agent,
     method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
   },
   (res) => {
-    console.log('statusCode:', res.statusCode);
-    console.log('headers:', res.headers);
-
-    let body = ""
+    let body = '';
 
     res.on('data', (d) => {
       body += d;
@@ -38,11 +37,9 @@ const request = https.request(
     res.on('end', () => {
       const json = JSON.parse(body);
       const schema = buildClientSchema(json.data);
-      // const schema = buildSchema(body);
-      fs.writeFileSync(outPath, printSchema(schema))
-    })
-  }
-)
+      fs.writeFileSync(outPath, printSchema(schema));
+    });
+  },
+);
 
-request.write(JSON.stringify({ query }));
-request.end();
+request.end(JSON.stringify({ query }));
