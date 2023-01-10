@@ -19,7 +19,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^9.4.0",
+    "commander": "^9.5.0",
     "graphql": "^16.6.0"
   },
   "devDependencies": {
