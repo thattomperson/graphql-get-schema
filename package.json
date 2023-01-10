@@ -23,6 +23,6 @@
     "graphql": "^16.6.0"
   },
   "devDependencies": {
-    "parcel": "^2.7.0"
+    "parcel": "^2.8.2"
   }
 }
