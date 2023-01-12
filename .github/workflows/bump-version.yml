@@ -1,0 +1,15 @@
+name: Bump version
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Bump SemVer
+        uses: darioblanco/bump-semver@v1.0.0
+        with:
+          npm: true
+          prefix: v
+          token: ${{ secrets.GITHUB_TOKEN }}
