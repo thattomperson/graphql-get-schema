@@ -20,7 +20,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^9.5.0",
+    "commander": "^10.0.0",
     "graphql": "^16.6.0",
     "husky": "^8.0.3"
   },
