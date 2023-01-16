@@ -8,7 +8,8 @@
   "scripts": {
     "build": "parcel build",
     "prepublish": "npm run build",
-    "test": "true"
+    "test": "true",
+    "prepare": "husky install"
   },
   "repository": {
     "url": "https://github.com/thattomperson/graphql-get-url"
@@ -20,9 +21,16 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^9.5.0",
-    "graphql": "^16.6.0"
+    "graphql": "^16.6.0",
+    "husky": "^8.0.3"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
     "parcel": "^2.8.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
