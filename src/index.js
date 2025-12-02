@@ -3,10 +3,12 @@ const { getIntrospectionQuery, printSchema, buildClientSchema } = require('graph
 const https = require('https')
 const fs = require('fs')
 
+
 program
   .option('-u, --url <url>', 'http://localhost:3000/graphql')
   .option('-p, --path <path>', './schema.graphql')
-  .option('-k, --insecure', false);
+  .option('-k, --insecure', false)
+  .option('-c, --cookie <cookie>', 'Custom cookie string to send with the request');
 
 program.parse();
 const options = program.opts();
@@ -14,18 +16,25 @@ const options = program.opts();
 const url = new URL(options.url ?? 'http://localhost:3000/graphql')
 const outPath = options.path ?? './schema.graphql';
 const insecure = options.insecure ?? false;
+const cookie = options.cookie;
 
 const query = getIntrospectionQuery();
 const agent = new https.Agent({ rejectUnauthorized: !insecure });
+
+const headers = {
+  'content-type': 'application/json',
+};
+
+if (cookie) {
+  headers['Cookie'] = cookie;
+}
 
 const request = https.request(
   url,
   {
     agent: agent,
     method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-    },
+    headers: headers,
   },
   (res) => {
     let body = '';
